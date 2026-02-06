@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3: Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        const choices = ["Rock", "Paper", "Scissors"]
+
+        function getComputerChoice() {
+            let Random_choice = Math.floor(Math.random()*3);
+            return choices[Random_choice];
+        }
+
+        function getHumanChoice() {
+            let usersChoice = prompt("Rock, Paper or Scissors?");
+            return usersChoice;
+        }
+
+        function playRound() {
+            let humanChoice = getHumanChoice();
+            let computerChoice = getComputerChoice();
+            
+            let human = humanChoice.toLowerCase();
+            let computer = computerChoice.toLowerCase();
+
+            if ((human==="rock" && computer==="scissors") || (human==="paper" && computer==="rock") || (human==="scissors" && computer==="paper")) {
+                humanScore++;
+                console.log("Human: You have won this round!")
+            }
+            else if (computer === human) {
+                console.log("Hmmm! Its a Draw!")
+            }
+            else {
+                computerScore++
+                console.log("Computer wins this round!")
+            }
+        }   
+        
+        let humanScore = 0;
+        let computerScore = 0;
+        
+        function playGame(){
+            for (let i=0; i<5; i++) {
+                playRound()
+            }
+            if (humanScore>computerScore) {
+                console.log("Human! You win the game!")
+            }
+            else if (computerScore>humanScore) {
+                console.log("Computer wins the game!")
+            }
+            else {
+                console.log("Its a Draw!")
+            }
+
+        }
+
+        playGame()
+
+
+    </script>
+</body>
+</html>
