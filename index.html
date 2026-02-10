@@ -31,56 +31,49 @@
 
     <script>
 
-        const clickRock = document.querySelector("")
+        const PlayerScore = document.querySelector("#playerScore")
+        const ComputerScore = document.querySelector("#computerScore")
 
-        playround.addEventListener("click", (e) => {
-            playround.style.backgroundColor = "#E0777D"
-            const computer = document.createElement("div");
-            computer.textContent = getComputerChoice();
-
-            const player = document.createElement("div")
-            player.textContent = getHumanChoice();
-
-            smallContainer.appendChild(computer);
-            smallContainer.appendChild(player);
+        const buttons = document.querySelectorAll("#choiceBoxes button");
+        buttons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                e.target.style.backgroundColor = "red";
+                const humanChoice = e.target.textContent;
+                playRound(humanChoice);
+            })
         })
+            
+        
 
-
-
-        const choices = ["Rock", "Paper", "Scissors"]
+        let choices = ["Rock", "Paper", "Scissors"]
+        let playerScore = 0;
+        let computerscore = 0;
 
         function getComputerChoice() {
             let Random_choice = Math.floor(Math.random()*3);
             return choices[Random_choice];
         }
 
-        function getHumanChoice() {
-            let usersChoice = prompt("Rock, Paper or Scissors?");
-            return usersChoice;
-        }
-
-        function playRound() {
-            let humanChoice = getHumanChoice();
+        function playRound(humanChoice) {
             let computerChoice = getComputerChoice();
-            
             let human = humanChoice.toLowerCase();
             let computer = computerChoice.toLowerCase();
 
             if ((human==="rock" && computer==="scissors") || (human==="paper" && computer==="rock") || (human==="scissors" && computer==="paper")) {
-                humanScore++;
-                console.log("Human: You have won this round!")
+                playerScore += 1;
+                let player_score = "Player: " + playerScore;
+                PlayerScore.textContent = player_score;
+
             }
             else if (computer === human) {
-                console.log("Hmmm! Its a Draw!")
             }
             else {
-                computerScore++
-                console.log("Computer wins this round!")
+                computerscore += 1;
+                let computer_score = "Computer: " + computerscore
+                ComputerScore.textContent = computer_score;
+
             }
         }   
-        
-        let humanScore = 0;
-        let computerScore = 0;
         
         
 
