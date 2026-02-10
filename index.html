@@ -5,8 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3: Rock Paper Scissors</title>
 </head>
-<body>
+    <h1 id = "header">Rock Paper Scissors shoot!</h1>
+    <div id = "container" >
+        <button id = "computersTurn">Computers turn</button>
+        <button id = "playersTurn">Your turn</button>
+        <button id = "playRound">Play a round!</button>
+    </div>
+
+    <div class = "displayResult">
+    
+    </div>
+    <style>
+        #container {
+            height : 50vh;
+            display : flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        button {
+            color: black;
+            border-style: solid;
+            border-width: 2px;
+            background-color: lightblue;
+
+            min-height: 50px;
+            min-width: 120px;
+
+            flex-basis: 50px;
+            flex-shrink: 1;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: black;
+            background-color: lightblue;
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 0 12px;
+            margin: 0 auto;
+        }
+
+        .displayResult {
+            display: flex;
+            box-sizing: border-box;
+            height: 300px;
+            margin-left: 100px;
+            margin-right: 100px;
+
+            border-radius: 6px;
+            border-style: solid;
+            border-color: black;
+            background-color: lightblue;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+
+    </style>
+
+
     <script>
+        const computersturn = document.querySelector("#computersTurn");
+        const playersturn = document.querySelector("#playersTurn");
+        const playround = document.querySelector("#playRound");
+        
+        computersturn.addEventListener("click", (e) => {
+            computersturn.textContent = getComputerChoice()
+            computersturn.style.backgroundColor = "#E0777D"
+        })
+
+        playersturn.addEventListener("click", (e) => {
+            playersturn.style.backgroundColor = "#E0777D"
+            playersturn.textContent = getHumanChoice();
+
+        })
+
+        playround.addEventListener("click", (e) => {
+            
+        })
+
+
+
         const choices = ["Rock", "Paper", "Scissors"]
 
         function getComputerChoice() {
@@ -42,23 +129,7 @@
         let humanScore = 0;
         let computerScore = 0;
         
-        function playGame(){
-            for (let i=0; i<5; i++) {
-                playRound()
-            }
-            if (humanScore>computerScore) {
-                console.log("Human! You win the game!")
-            }
-            else if (computerScore>humanScore) {
-                console.log("Computer wins the game!")
-            }
-            else {
-                console.log("Its a Draw!")
-            }
-
-        }
-
-        playGame()
+        
 
 
     </script>
