@@ -50,30 +50,14 @@
 
         choicebuttons.forEach((button) => {
         button.addEventListener("click", (e) => {
-
-            if (player__score === 5) {
-                lowerDisplay.textContent = "Congrats! You've won the game."
-                player__score = 0;
-                computer__score = 0;
-                window.location.href= "./playerWinPlayAgainPage.html"
-                return
-
-            } else if (computer__score === 5) {
-                lowerDisplay.textContent = "Computer has won the game!";
-                player__score = 0;
-                computer__score = 0;
-                window.location.href = "./computerWinPlayAgainPage.html"
-            }
-            else {
-
+            choicebuttons.forEach((button => button.style.backgroundColor=""))
             e.target.style.backgroundColor = "#B8860B" ;
             const humanChoice = e.target.textContent;
             playerNow.textContent = humanChoice[0] + humanChoice.substring(1)
             playerNow.style.backgroundColor = "#B8860B"
 
             playRound(humanChoice);
-
-    } } ) } )
+    } ) } )
     
 
         let choices = ["Rock", "Paper", "Scissors"]
@@ -90,22 +74,35 @@
             let human = humanChoice.toLowerCase();
             let computer = computerChoice.toLowerCase();
 
-            if ((human==="rock" && computer==="scissors") || (human==="paper" && computer==="rock") || (human==="scissors" && computer==="paper")) {
+            if ((human==="rock" && computer==="scissors") || (human==="paper" && computer==="rock") || (human==="scissors" && computer==="paper")) 
+            {
                 lowerDisplay.textContent = "You Win this round!"
-
+                player__score += 1;
                 let player_score = "Player: " + player__score;
                 PlayerScore.textContent = player_score;
-                player__score += 1;
-
             }
             else if (computer === human) {
                 lowerDisplay.textContent = "Draw!"
             }
             else {
                 lowerDisplay.textContent = "Computer wins this round!"
+                computer__score += 1;
                 let computer_score = "Computer: " + computer__score
                 ComputerScore.textContent = computer_score;
-                computer__score += 1;
+            }
+
+             if (player__score === 5) {
+                lowerDisplay.textContent = "Congrats! You've won the game."
+                player__score = 0;
+                computer__score = 0;
+                window.location.href= "./playerWinPlayAgainPage.html"
+                return
+
+            } else if (computer__score === 5) {
+                lowerDisplay.textContent = "Computer has won the game!";
+                player__score = 0;
+                computer__score = 0;
+                window.location.href = "./computerWinPlayAgainPage.html"
             }
         }   
                 
