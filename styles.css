@@ -1,11 +1,12 @@
 
 #top {
     display: flex;
-    height : 12vh;
+    margin: 0 0;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     justify-content: space-between;
-    align-items: center;}
+    align-items: center;
+}
 
 
 #center {
@@ -26,9 +27,11 @@
 
 #choiceBoxes {
     display: flex;
-    width: 90vh;
+    width: 100%;
     gap: 16px;
-    justify-content: space-evenly
+    justify-content: space-between;
+    margin-bottom: 0;
+    margin-top: 10px;
 }
 
 
@@ -42,9 +45,9 @@
     font-size: larger;
 }
 
-#top #choose, h1, #scoreBoxes #playerScore, #scoreBoxes #computerScore, #choiceBoxes button {
+#vs, #playerIsNow, #computerIsNow, #top #choose, h1, #scoreBoxes #playerScore, #scoreBoxes #computerScore, #choiceBoxes button {
     color: black;
-    background-color: lightblue;
+    background-color: #eee598;
     border-style: solid;
     border-width: 2px;
     border-radius: 4px;
@@ -54,23 +57,30 @@
 }
 
 .displayResult {
-    display: flex;
+
+    flex-wrap: wrap;
     box-sizing: border-box;
     height: 200px;
-    margin: 0 100px ;
+    width: 80%;
+    align-self: center;
    
     border-radius: 6px;
     border-style: solid;
     border-color: black;
-    background-color: lightblue;
+    background-color: #f8e6b9;
+
 }
 
 body {
     display: flex;
+    min-height: 95vh;
     flex-direction: column;
-    justify-content: space-between;
     padding: 0;
     margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #FFF8EE  ;
 }
 
 #smallContainer {
@@ -78,4 +88,43 @@ body {
     gap: 16px;
     color: black;
     background-color: lightblue;
+}
+
+#IsNow {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-between;
+}
+
+#playerIsNow, #computerIsNow{
+    flex-grow: 0.2;
+    text-align: center;
+    padding: 43px 25px;
+    
+    font-size: larger;
+}
+
+#vs {
+    flex-grow: 0.001;
+    text-align: center;
+    align-self: center;
+}
+
+
+
+/* Coloring */
+#choiceBoxes button, #top #choose {
+    background-color: #E8C872;
+    color: #3D3225;
+}
+
+body {
+    border-width: 20px;
+    color: rgb(26, 7, 7);
+}
+
+#header, #playerIsNow, #computerIsNow {
+    background-color: rgb(235, 230, 160);
+    color: rgb(26, 7, 7);
+    
 }

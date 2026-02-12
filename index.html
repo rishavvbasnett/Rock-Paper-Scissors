@@ -17,6 +17,12 @@
             <div id = "playerScore">Player: 0</div>
             <div id = "computerScore">Computer: 0</div>
         </div>
+
+        <div id = "IsNow">
+            <div id = "playerIsNow">N/A</div>
+            <div id = "vs">vs.</div>
+            <div id = "computerIsNow">N/A</div>
+        </div>
         
         <div id = "choiceBoxes">
             <button id = "rock">ROCK</button>
@@ -34,14 +40,16 @@
         const PlayerScore = document.querySelector("#playerScore")
         const ComputerScore = document.querySelector("#computerScore")
 
-        const buttons = document.querySelectorAll("#choiceBoxes button");
-        buttons.forEach(button => {
+        const choicebuttons = document.querySelectorAll("#choiceBoxes button");
+        choicebuttons.forEach(button => {
             button.addEventListener("click", (e) => {
-                e.target.style.backgroundColor = "red";
+                e.target.style.backgroundColor = "#6B8E23" ;
                 const humanChoice = e.target.textContent;
                 playRound(humanChoice);
             })
         })
+        
+
             
         
 
