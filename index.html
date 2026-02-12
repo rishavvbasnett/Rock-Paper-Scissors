@@ -9,7 +9,7 @@
 <body>
     <div id = "top">
         <h1 id = "header">Rock Paper Scissors shoot!</h1>
-        <button id = "choose">Choose: </button>
+        <button id = "choose" style = "font-weight: 500">Click a button to play! </button>
     </div>
 
     <div id = "center">
@@ -39,51 +39,76 @@
 
         const PlayerScore = document.querySelector("#playerScore")
         const ComputerScore = document.querySelector("#computerScore")
-
+        const lowerDisplay =  document.querySelector(".displayResult")
         const choicebuttons = document.querySelectorAll("#choiceBoxes button");
-        choicebuttons.forEach(button => {
-            button.addEventListener("click", (e) => {
-                e.target.style.backgroundColor = "#6B8E23" ;
-                const humanChoice = e.target.textContent;
-                playRound(humanChoice);
-            })
-        })
-        
+        const playerNow = document.querySelector("#playerIsNow")
+        const computerNow = document.querySelector("#computerIsNow")
 
-            
-        
+
+        let player__score = 0;
+        let computer__score = 0;
+
+        choicebuttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+
+            if (player__score === 5) {
+                lowerDisplay.textContent = "Congrats! You've won the game."
+                player__score = 0;
+                computer__score = 0;
+                window.location.href= "./playerWinPlayAgainPage.html"
+                return
+
+            } else if (computer__score === 5) {
+                lowerDisplay.textContent = "Computer has won the game!";
+                player__score = 0;
+                computer__score = 0;
+                window.location.href = "./computerWinPlayAgainPage.html"
+            }
+            else {
+
+            e.target.style.backgroundColor = "#B8860B" ;
+            const humanChoice = e.target.textContent;
+            playerNow.textContent = humanChoice[0] + humanChoice.substring(1)
+            playerNow.style.backgroundColor = "#B8860B"
+
+            playRound(humanChoice);
+
+    } } ) } )
+    
 
         let choices = ["Rock", "Paper", "Scissors"]
-        let playerScore = 0;
-        let computerscore = 0;
 
         function getComputerChoice() {
             let Random_choice = Math.floor(Math.random()*3);
-            return choices[Random_choice];
+            return choices[Random_choice].toUpperCase();
         }
-
         function playRound(humanChoice) {
             let computerChoice = getComputerChoice();
+            computerNow.textContent = computerChoice;
+            computerNow.style.backgroundColor = "#fd7514cf"
+
             let human = humanChoice.toLowerCase();
             let computer = computerChoice.toLowerCase();
 
             if ((human==="rock" && computer==="scissors") || (human==="paper" && computer==="rock") || (human==="scissors" && computer==="paper")) {
-                playerScore += 1;
-                let player_score = "Player: " + playerScore;
+                lowerDisplay.textContent = "You Win this round!"
+
+                let player_score = "Player: " + player__score;
                 PlayerScore.textContent = player_score;
+                player__score += 1;
 
             }
             else if (computer === human) {
+                lowerDisplay.textContent = "Draw!"
             }
             else {
-                computerscore += 1;
-                let computer_score = "Computer: " + computerscore
+                lowerDisplay.textContent = "Computer wins this round!"
+                let computer_score = "Computer: " + computer__score
                 ComputerScore.textContent = computer_score;
-
+                computer__score += 1;
             }
         }   
-        
-        
+                
 
 
     </script>

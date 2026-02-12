@@ -34,7 +34,6 @@
     margin-top: 10px;
 }
 
-
 #choiceBoxes button {
     min-width: 90px;
     min-height: 100px;
@@ -45,15 +44,15 @@
     font-size: larger;
 }
 
-#vs, #playerIsNow, #computerIsNow, #top #choose, h1, #scoreBoxes #playerScore, #scoreBoxes #computerScore, #choiceBoxes button {
-    color: black;
-    background-color: #eee598;
+.displayResult, #vs, #playerIsNow, #computerIsNow, #top #choose, h1, #scoreBoxes #playerScore, #scoreBoxes #computerScore, #choiceBoxes button {
+    color: rgb(41, 24, 2);
+    background-color: #d3c793;
     border-style: solid;
-    border-width: 2px;
-    border-radius: 4px;
+    border-width: 3px;
+    border-radius: 3.5px;
 
     font-weight: bold;
-    padding: 7px 11px;
+    padding: 8px 11px;
 }
 
 .displayResult {
@@ -63,8 +62,11 @@
     height: 200px;
     width: 80%;
     align-self: center;
-   
-    border-radius: 6px;
+    text-align: center;
+    font-size: xx-large;
+    padding: 50px 0;
+
+    border-radius: 7px;
     border-style: solid;
     border-color: black;
     background-color: #f8e6b9;
@@ -80,7 +82,7 @@ body {
     justify-content: space-between;
     align-items: center;
     
-    background-color: #FFF8EE  ;
+    background-color: #fcf2e8  ;
 }
 
 #smallContainer {
@@ -105,11 +107,14 @@ body {
 }
 
 #vs {
-    flex-grow: 0.001;
+    flex-grow: 0.002;
     text-align: center;
     align-self: center;
 }
 
+#scoreBoxes #playerScore, #scoreBoxes #computerScore, #choose {
+    font-size: larger;
+}
 
 
 /* Coloring */
@@ -119,7 +124,6 @@ body {
 }
 
 body {
-    border-width: 20px;
     color: rgb(26, 7, 7);
 }
 
