@@ -1,6 +1,3 @@
-# Project-3_Rock-Paper-Scissors
-Third Project from TOP (by mostly using Javascript)
-
 # Rock Paper Scissors
 
 A browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/) Foundations course.
